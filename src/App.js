@@ -1,3 +1,4 @@
+// imports
 import "./App.css";
 import logo from "./assets/img/logo.png";
 import banner from "./assets/img/header-image.jpg";
@@ -5,7 +6,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
+  // Déclaration des states
   const [data, setData] = useState({});
+
+  const [cart, setCart] = useState([{ title: "title", isDone: false }]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +18,6 @@ function App() {
         const response = await axios.get(
           "https://deliveroo-exo-backend.herokuapp.com/"
         );
-        // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -23,6 +26,17 @@ function App() {
     };
     fetchData();
   }, []);
+
+  const addMealToCart = (title) => {
+    // console.log("Index à modifier =>", index);
+    // console.log("article à ajouter =>", meal);
+    const newCart = [...cart];
+    newCart.push({ title: title, isDone: true });
+    console.log(cart, "cart");
+    console.log(newCart, "newcart");
+
+    return setCart(newCart);
+  };
 
   return isLoading ? (
     <span>En cours de chargement...</span>
@@ -60,7 +74,14 @@ function App() {
                       <h2>{category.name}</h2>
                       {category.meals.map((meal, index) => {
                         return (
-                          <div className="meal" key={index}>
+                          <div
+                            className="meal"
+                            key={index}
+                            onClick={() => {
+                              addMealToCart(meal.title);
+                            }}
+                            value={meal}
+                          >
                             <div
                               className={
                                 meal.picture
@@ -103,9 +124,46 @@ function App() {
           </div>
           <div className="col-2">
             <div className="main-content">
-              <div className="content-banner-1">
+              <div className="cart-container">
                 <button className="validate-cart">Valider mon panier</button>
-                <p className="message-cart">Votre panier est vide.</p>
+                {console.log(cart.title)}
+                {cart.isDone === true ? (
+                  cart.title.map(
+                    (title, index)(
+                      <div>
+                        <div className="cart-meal" key={index}>
+                          <div className="meal-priceline">
+                            <div className="cart-counter-meal">
+                              <button>-</button>
+                              <div>00</div>
+                              <button>+</button>
+                            </div>
+                            <div className="cart-title-meal">
+                              <h3>{cart.title}</h3>
+                            </div>
+                            <div>
+                              <p className="cart-price-meal">{cart.price}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  )
+                ) : (
+                  <>
+                    <div className="cart-total">
+                      <p>Sous-total</p>
+                      <p>10</p>
+                    </div>
+                    <div className="cart-total">
+                      <p>Total</p>
+                      <p>11</p>
+                    </div>
+                  </>
+                )}
+
+                {/* :( <button className="validate-cart">Valider mon panier</button>
+                <p className="message-cart">Votre panier est vide.</p> ) */}
               </div>
             </div>
           </div>

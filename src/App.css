@@ -342,3 +342,89 @@ p:not(.meal-desc) {
 .meal-price {
   margin: 0;
 }
+
+.meal-priceline {
+  display: flex;
+}
+
+.cart-container {
+  width: 100%;
+  border: 3px solid yellow;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 0 auto;
+  height: 100%;
+  /* border: 3px solid yellow; */
+  box-sizing: border-box;
+
+  align-items: center;
+}
+
+.cart-meal {
+  display: flex;
+  background-color: lightgoldenrodyellow;
+  align-items: center;
+  height: 7vh;
+  width: 100%;
+  border: 3px solid red;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  white-space: nowrap;
+  margin: 5px;
+}
+
+.cart-counter-meal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid blue;
+  box-sizing: border-box;
+  height: 100%;
+  width: 20%;
+}
+
+.cart-title-meal {
+  box-sizing: border-box;
+  line-height: 1.5em;
+  display: flex;
+
+  border: 3px solid green;
+  height: 50% !important;
+  overflow: hidden;
+  padding: 0;
+  font-size: 0.8em;
+  width: 60%;
+  padding-left: 10px;
+}
+
+.cart-title-meal > p {
+  padding-left: 10px;
+  justify-content: flex-start;
+}
+
+.cart-price-meal {
+  display: flex;
+  border: 3px solid purple;
+  height: 5vh !important;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-price-meal > p {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* border: 3px solid purple; */
+  margin: 0px;
+  height: 20px;
+  width: 20%;
+  font-size: 0.8em;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+}
