@@ -2,8 +2,7 @@ import "./App.css";
 import logo from "./assets/img/logo.png";
 import banner from "./assets/img/header-image.jpg";
 import axios from "axios";
-import { useEffect, useState, setIsloading } from "react";
-import { getByDisplayValue } from "@testing-library/react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [data, setData] = useState({});
@@ -43,7 +42,11 @@ function App() {
               <p className="banner-desc">{data.restaurant.description}</p>
             </div>
             <div className="col-2">
-              <img className="banner-img" alt="logo-deliveroo" src={banner} />
+              <img
+                className="banner-img"
+                alt={data.restaurant.name}
+                src={banner}
+              />
             </div>
           </div>
           <div className="App-content">
@@ -59,7 +62,13 @@ function App() {
                         {category.meals.map((meal, index) => {
                           return (
                             <div className="meal" key={index}>
-                              <div className="submeal-1">
+                              <div
+                                className={
+                                  meal.picture
+                                    ? "submeal-1"
+                                    : "submeal-1-without-img"
+                                }
+                              >
                                 <h3>{meal.title}</h3>
 
                                 {meal.description && (

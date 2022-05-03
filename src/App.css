@@ -75,6 +75,10 @@ header {
   background-color: white;
 }
 
+.banner .col-1 {
+  margin-left: 20px;
+}
+
 .subcontainer {
   display: flex;
   justify-content: center;
@@ -129,9 +133,10 @@ h1 {
 .banner-img {
   width: 100%;
   object-fit: cover;
-  height: 80%;
+  height: 90%;
   border-radius: 5px;
   box-sizing: border-box;
+  align-items: center;
 }
 .banner-desc {
   font-size: 1.2rem;
@@ -196,6 +201,7 @@ h2 {
   box-sizing: border-box;
   flex-wrap: wrap;
   width: 100%;
+  padding: 10px;
   /* height: 200px; */
 }
 
@@ -206,7 +212,7 @@ h2 {
   box-sizing: border-box;
   background-color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .meal:hover {
@@ -216,21 +222,25 @@ h2 {
 
 h3 {
   color: #2e3333;
-  font-size: 1em;
-  height: 10%;
-
-  margin-bottom: 20px;
+  font-size: 1.17em;
+  margin: 0;
+  padding-bottom: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: 400;
 }
 
 .meal-desc {
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  margin-top: 10px;
 
-  line-height: 1.35rem;
+  color: #808484;
+  line-height: 1.25rem;
   font-size: 1rem;
-  height: 35%;
+  height: 30%;
+  width: 100%;
   /* border: 3px solid orange; */
   box-sizing: border-box;
 }
@@ -253,8 +263,20 @@ p:not(.meal-desc) {
 .submeal-1 {
   box-sizing: border-box;
 
-  height: 200px;
+  height: 160px;
   width: 60%;
+  padding: 5px;
+  /* border: 3px solid purple; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.submeal-1-without-img {
+  box-sizing: border-box;
+
+  height: 160px;
+  width: 100%;
   padding: 5px;
   /* border: 3px solid purple; */
   display: flex;
@@ -265,9 +287,11 @@ p:not(.meal-desc) {
 .submeal-2 {
   box-sizing: border-box;
 
-  padding: 40px 10px;
-  width: 40%;
-  height: 100%;
+  padding: 0px 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 35%;
+  height: 75%;
   display: flex;
   justify-content: center;
 }
@@ -312,4 +336,9 @@ p:not(.meal-desc) {
   font-weight: 800;
   width: 20px;
   box-sizing: border-box;
+  margin: 0;
+}
+
+.meal-price {
+  margin: 0;
 }
